@@ -1,0 +1,267 @@
+$orange: #f26522;
+$modal-bg: #e6e6e6;
+$text-dark: #4a4a4a;
+$text-muted: #9a9a9a;
+$title-gray: #c8c8c8;
+$link-blue: #0066cc;
+$breakpoint-mobile: 768px;
+$side-padding: 28px;
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$ease-in: cubic-bezier(0.64, 0, 0.78, 0);
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  padding: $side-padding;
+  border-radius: 16px;
+  background-color: $modal-bg;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transform-origin: top center;
+}
+
+.modalEntering {
+  animation: modalEnter 0.36s $ease-out both;
+}
+
+.modalClosing {
+  animation: modalExit 0.36s $ease-in both;
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalExit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: $text-muted;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s $ease-out;
+
+  &:hover {
+    color: $text-dark;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.title {
+  margin: 0 0 28px;
+  color: $title-gray;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  color: $text-dark;
+  font-size: 14px;
+  transition: color 0.25s ease;
+}
+
+.labelActive {
+  color: $orange;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  background-color: #fff;
+  color: $text-dark;
+  font: inherit;
+  font-size: 16px;
+  text-transform: none;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+  &::placeholder {
+    color: #c0c0c0;
+    text-transform: lowercase;
+  }
+}
+
+.inputActive {
+  border-color: $orange;
+  box-shadow: 0 0 0 3px rgba($orange, 0.15);
+}
+
+.submit {
+  align-self: center;
+  width: 100%;
+  max-width: 200px;
+  margin: 8px 0 24px;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 6px;
+  background-color: $orange;
+  color: #fff;
+  font: inherit;
+  font-size: 18px;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s $ease-out;
+
+  &:hover {
+    background-color: darken($orange, 6%);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.additionalOptions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: $text-dark;
+  font: inherit;
+  font-size: 14px;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 6px solid $text-dark;
+  transition: transform 0.3s $ease-out;
+}
+
+.caretOpen {
+  transform: rotate(90deg);
+}
+
+.linksPanel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.35s $ease-out, opacity 0.3s ease,
+    margin-top 0.35s $ease-out;
+  margin-top: 0;
+}
+
+.linksPanelOpen {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 14px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+
+  a {
+    color: $link-blue;
+    font-size: 14px;
+    text-decoration: underline;
+    text-transform: lowercase;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .modal {
+    max-width: none;
+    transform-origin: top center;
+  }
+
+  .modalEntering {
+    animation-name: modalEnterMobile;
+  }
+
+  .modalClosing {
+    animation-name: modalExitMobile;
+  }
+
+  .submit {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@keyframes modalEnterMobile {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes modalExitMobile {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+  }
+}
