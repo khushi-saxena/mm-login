@@ -22,3 +22,9 @@ You can use the `-p` flag to specify a port for development. To do this, you can
 ```
 npm start -- --port 1234
 ```
+
+## Live demo
+
+After pushing to `main`, GitHub Actions deploys the app to GitHub Pages:
+
+**https://khushi-saxena.github.io/mm-login/**
