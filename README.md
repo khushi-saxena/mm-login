@@ -28,3 +28,11 @@ npm start -- --port 1234
 After pushing to `main`, GitHub Actions deploys the app to GitHub Pages:
 
 **https://khushi-saxena.github.io/mm-login/**
+
+### If deployment fails
+
+1. Open **Settings → Pages** on the repo.
+2. Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”).
+3. Re-run the latest workflow from the **Actions** tab.
+
+The first deploy often fails until Pages is enabled; later pushes should succeed.
