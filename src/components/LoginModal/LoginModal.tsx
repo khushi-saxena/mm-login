@@ -62,12 +62,19 @@ export const LoginModal = ({ onClose, isClosing = false }: LoginModalProps) => {
         </div>
 
         <div className={styles.field}>
-          <label className={styles.label} htmlFor="password">
+          <label
+            className={`${styles.label} ${
+              focusedField === "password" ? styles.labelActive : ""
+            }`}
+            htmlFor="password"
+          >
             password
           </label>
           <input
             id="password"
-            className={styles.input}
+            className={`${styles.input} ${
+              focusedField === "password" ? styles.inputActive : ""
+            }`}
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}

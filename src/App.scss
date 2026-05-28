@@ -1,8 +1,7 @@
 $bg-dark: #4a4a4a;
 $mobile-padding: 24px;
-$breakpoint-mobile: 768px;
+$breakpoint-mobile: 450px;
 $ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-$ease-in: cubic-bezier(0.64, 0, 0.78, 0);
 
 *,
 *::before,
@@ -54,38 +53,6 @@ body {
 .welcome--modalOpen {
   transform: translateY(-4px);
   margin-bottom: 16px;
-}
-
-:global(.loginButton--enter) {
-  animation: buttonEnter 0.4s $ease-out both;
-}
-
-:global(.loginButton--exit) {
-  animation: buttonExit 0.18s $ease-in both;
-}
-
-@keyframes buttonEnter {
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(0.94);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes buttonExit {
-  from {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-
-  to {
-    opacity: 0;
-    transform: translateY(8px) scale(0.92);
-  }
 }
 
 @media (max-width: $breakpoint-mobile) {

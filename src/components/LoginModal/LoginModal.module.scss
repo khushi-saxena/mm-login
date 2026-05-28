@@ -1,10 +1,10 @@
-$orange: #f26522;
+$orange: #fb9806;
 $modal-bg: #e6e6e6;
 $text-dark: #4a4a4a;
 $text-muted: #9a9a9a;
 $title-gray: #c8c8c8;
-$link-blue: #0066cc;
-$breakpoint-mobile: 768px;
+$link-color: #7986cb;
+$breakpoint-mobile: 450px;
 $side-padding: 28px;
 $ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 $ease-in: cubic-bezier(0.64, 0, 0.78, 0);
@@ -129,9 +129,7 @@ $ease-in: cubic-bezier(0.64, 0, 0.78, 0);
 }
 
 .submit {
-  align-self: center;
   width: 100%;
-  max-width: 200px;
   margin: 8px 0 24px;
   padding: 14px 24px;
   border: none;
@@ -209,7 +207,7 @@ $ease-in: cubic-bezier(0.64, 0, 0.78, 0);
   overflow: hidden;
 
   a {
-    color: $link-blue;
+    color: $link-color;
     font-size: 14px;
     text-decoration: underline;
     text-transform: lowercase;
@@ -233,12 +231,6 @@ $ease-in: cubic-bezier(0.64, 0, 0.78, 0);
 
   .modalClosing {
     animation-name: modalExitMobile;
-  }
-
-  .submit {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
 

@@ -35,7 +35,7 @@ export default () => {
 
       {!isModalOpen && (
         <LoginButton
-          className={isButtonExiting ? "loginButton--exit" : "loginButton--enter"}
+          variant={isButtonExiting ? "exit" : "enter"}
           onClick={openModal}
         />
       )}

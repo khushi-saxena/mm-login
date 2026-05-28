@@ -1,4 +1,6 @@
-$orange: #f26522;
+$orange: #fb9806;
+$ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+$ease-in: cubic-bezier(0.64, 0, 0.78, 0);
 
 .button {
   padding: 14px 56px;
@@ -10,7 +12,7 @@ $orange: #f26522;
   font-size: 18px;
   text-transform: lowercase;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: background-color 0.2s ease, transform 0.2s $ease-out;
 
   &:hover {
     background-color: darken($orange, 6%);
@@ -19,5 +21,37 @@ $orange: #f26522;
 
   &:active {
     transform: translateY(0);
+  }
+}
+
+.enter {
+  animation: buttonEnter 0.4s $ease-out both;
+}
+
+.exit {
+  animation: buttonExit 0.18s $ease-in both;
+}
+
+@keyframes buttonEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes buttonExit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.92);
   }
 }
